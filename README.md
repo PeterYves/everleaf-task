@@ -1,4 +1,4 @@
-# Tables that will be used
+## Tables that will be used
 1.Users table
   1.id: integer
   2.name: text
@@ -14,3 +14,8 @@
   6. priority: integer
   7. start_date: timedate
   8. end_date: timedate
+
+  First Header | Second Header
+------------ | -------------
+Content from cell 1 | Content from cell 2
+Content in the first column | Content in the second column
