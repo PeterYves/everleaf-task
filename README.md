@@ -1,4 +1,4 @@
-#Tables that will be used:
+# Tables that will be used
 1.Users table
   1.id: integer
   2.name: text
