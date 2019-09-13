@@ -15,10 +15,16 @@
   7. start_date: timedate
   8. end_date: timedate
 
-  First Header | Second Header
+  Users | Tasks
 ------------ | -------------
-Content from cell 1 | Content from cell 2
-Content in the first column | Content in the second column
+id: integer | id: integer
+name: text | name: text
+email: text | content: text
+password:string | user_id: integer
+                | status: string
+                | priority: integer
+                | start_date: timedate
+                | end_date: timedate
 
   user
 -----
