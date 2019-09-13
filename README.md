@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *Tables that will be used:
 1.Users table
   1.id: integer
@@ -14,3 +15,17 @@
   6. priority: integer
   7. start_date: timedate
   8. end_date: timedate
+=======
+## Tables that will be used and field data types:
+
+  Tasks | Users
+------------ | -------------
+id: integer | id: integer
+name: text | name: text
+content: text | email: text
+user_id: integer | password:string
+| status: string
+| priority: integer
+| start_date: timedate
+| end_date: timedate
+>>>>>>> 76a107d854ef57134d89d7fb745d853f107abc9e
