@@ -1,12 +1,12 @@
-## Tables that will be used
+## Tables that will be used and field data types:
 
-  Users | Tasks
+  Tasks | Users
 ------------ | -------------
 id: integer | id: integer
 name: text | name: text
-email: text | content: text
-password:string | user_id: integer
-status: string |
-priority: integer |
-start_date: timedate |
-end_date: timedate |
+content: text | email: text
+user_id: integer | password:string
+| status: string
+| priority: integer
+| start_date: timedate
+| end_date: timedate
