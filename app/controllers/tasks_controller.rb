@@ -3,6 +3,7 @@ class TasksController < ApplicationController
 
   # GET /tasks
   def index
+    flash[:notice] = t(:have_a_good_time)
     @tasks = Task.all
   end
 
