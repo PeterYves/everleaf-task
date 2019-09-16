@@ -1,4 +1,4 @@
-## Tables that will be used and field data types:
+## ERD tables
 
   Tasks
 ------------ |
@@ -10,3 +10,11 @@ user_id: integer |
 | priority: integer
 | start_date: timedate
 | end_date: timedate
+
+
+users
+------------ |
+id: integer |
+name: text | 
+email: text | 
+password: string | 
