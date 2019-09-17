@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   # GET /tasks
   def index
     flash[:notice] = t(:have_a_good_time)
-    @tasks = Task.all
+    @tasks = Task.order('created_at desc')
   end
 
   # GET /tasks/1
