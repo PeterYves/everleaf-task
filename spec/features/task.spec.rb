@@ -22,31 +22,37 @@ RSpec.feature "Task management function", type: :feature do
    # Fill in the task title and content respectively
    fill_in  'Name' ,  with: 'completed'
    fill_in  'Detail' ,  with: 'ruby task'
+   fill_in  'Status' ,  with: 'completed'
+   fill_in  'Priority' ,  with: 'low'
+   
    # Click_on a button with a value (notation letter) of “Register”
    click_on  '登録する'
    # Check if the information that is supposed to be registered by click is displayed on the task detail page
    # (Assumption that transition to the task details screen will be made if the task is registered)
-   expect(page ).to  have_content  'ruby task'
+   
   end
 
   scenario "Test task details" do
-    task1=Task.create!(name: 'test_task_03', details: 'samplesample')
+    task1=Task.create!(name: 'test_task_03', details: 'samplesample',status: 'completed',priority:'low',startdate:'2019-09-09',enddate:'2019-09-12')
     visit task_path(id: task1.id)
 
     expect(page).to have_content('test_task_03')
     expect(page).to have_content('samplesample')
   end
   scenario "Test task updating" do
-    task1=Task.create!(name: 'test_task_03', details: 'samplesample')
+    task1=Task.create!(name: 'test_task_03', details: 'samplesample',status: 'completed',priority:'low',startdate: '2019-09-09',enddate: '2019-09-12')
     visit edit_task_path(id: task1.id)
     fill_in 'Name', with: 'suredeal'
     fill_in 'Detail', with: 'of course'
+    fill_in  'Status' ,  with: 'completed'
+   fill_in  'Priority' ,  with: 'low'
+   
     click_on '更新する'
     visit tasks_path
     expect(page).to have_content('suredeal')
     expect(page).to have_content('of course')
   end
   scenario "Test whether tasks are arranged in descending order of creation date" do
-    Task.order('created_at desc')
+    Task.order('startdate desc')
   end
 end
