@@ -7,7 +7,7 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>TaskName</th>
       <th>Details</th>
       <th>Status</th>
       <th>Priority</th>
@@ -22,15 +22,11 @@
       <tr>
         <td><%= task.name %></td>
         <td><%= task.details %></td>
-<<<<<<< HEAD
         <td><%= task.status %></td>
         <td><%= task.priority %></td>
         <td><%= task.startdate %></td>
         <td><%= task.enddate %></td>
        
-=======
-        <td><%= task.created_at %></td>
->>>>>>> a3585d80d6d67e18682a1ead22ccb8f3cb7f2410
         <td><%= link_to 'Show', task %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
         <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -41,8 +37,4 @@
 
 <br>
 
-<<<<<<< HEAD
 <%= link_to t('view.New Task'), new_task_path %>
-=======
-<%= link_to 'New Task', new_task_path %>
->>>>>>> a3585d80d6d67e18682a1ead22ccb8f3cb7f2410
