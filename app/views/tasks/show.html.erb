@@ -9,6 +9,24 @@
   <strong>Details:</strong>
   <%= @task.details %>
 </p>
+<p>
+  <strong>staus:</strong>
+  <%= @task.status %>
+</p>
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<p>
+  <strong>priority:</strong>
+  <%= @task.priority %>
+</p>
+<p>
+  <strong>start date:</strong>
+  <%= @task.startdate %>
+</p>
+
+<p>
+  <strong>end date:</strong>
+  <%= @task.enddate %>
+</p>
+
+<%= link_to t('view.Edit'), edit_task_path(@task) %> |
+<%= link_to t('view.Back'), tasks_path %>
