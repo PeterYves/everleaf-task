@@ -4,8 +4,7 @@ class TasksController < ApplicationController
   # GET /tasks
   def index 
     @tasks = if params[:term]
-      Task.where('status LIKE ?', "%#{params[:term]}%")
-      Task.where('priority LIKE ?', "%#{params[:term]}%")
+      Task.where('status LIKE ? or name LIKE ?', "%#{params[:term]}%","%#{params[:term]}%")
     else
       @tasks = Task.order_list(params[:sort_by])
     end
