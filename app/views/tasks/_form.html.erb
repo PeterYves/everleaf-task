@@ -23,7 +23,7 @@
 
   <div class="field">
    <%= form.label :status %>
-   <%= form.text_field :status %>
+   <%= form.select(:status, options_for_select([['Not started','Not started'],['Undertaking','Undertaking'],['Completed','Completed']])) %>
  </div>
 
  <div class="field">
