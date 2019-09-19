@@ -4,7 +4,6 @@
 <hr>
 <h1>Tasks</h1>
 
-<%= form_with(model: task, local: true) do |form| %>
 <%= form_tag(tasks_path, method: :get) do %>
   <%= text_field_tag :term, params[:term] %>
   <%= submit_tag 'Search', name: nil %>
