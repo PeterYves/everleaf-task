@@ -4,6 +4,7 @@
 <hr>
 <h1>Tasks</h1>
 
+<%= form_with(model: task, local: true) do |form| %>
 <%= form_tag(tasks_path, method: :get) do %>
   <%= text_field_tag :term, params[:term] %>
   <%= submit_tag 'Search', name: nil %>
@@ -39,13 +40,11 @@
     <% end %>
   </tbody>
 </table>
-
+<hr>
 <div class="sort">
 <h3>Sort By</h3><hr>
-
-
 <%= link_to "name", tasks_path(sort_by: "name"),class:'btn btn-primary' %>
-<%= link_to "enddate", tasks_path(sort_by: "enddate"),class:'btn btn-warning' %>
+<%= link_to "enddate", tasks_path(sort_by: "enddate"),class:'btn btn-danger' %>
 </div>
 <br>
 
