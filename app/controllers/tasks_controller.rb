@@ -2,10 +2,18 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   # GET /tasks
-  def index
-    @tasks = Task.order('startdate desc')
+  def index 
+    @tasks = if params[:term]
+      Task.where('status LIKE ?', "%#{params[:term]}%")
+      Task.where('priority LIKE ?', "%#{params[:term]}%")
+    else
+      @tasks = Task.order_list(params[:sort_by])
+    end
   end
 
+  def search
+    @task =task.search(params[:search])
+   end
   # GET /tasks/1
   def show
   end
@@ -53,6 +61,6 @@ class TasksController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def task_params
-      params.require(:task).permit(:name, :details)
+      params.require(:task).permit(:name, :details,:status,:priority,:startdate,:enddate,:term)
     end
 end
