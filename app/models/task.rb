@@ -2,6 +2,7 @@ class Task < ApplicationRecord
     
   validates :name,    length: { in: 1..140 } 
   validates :startdate,:name,:details,:status,:priority,:enddate,presence: true
+  # enum status: [:not_started,:completed,:undertaking]
 
   # validate :startdate_cannot_be_later_than_enddate
   # private
@@ -24,6 +25,8 @@ class Task < ApplicationRecord
       order(name: :desc)
     elsif sort_order == "enddate"
       order(enddate: :desc)
+    elsif sort_order == "priority"
+      order(priority: :asc)
     else
       order(startdate: :desc)
     end

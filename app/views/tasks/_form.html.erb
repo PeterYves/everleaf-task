@@ -23,13 +23,14 @@
 
   <div class="field">
    <%= form.label :status %>
-   <%= form.select(:status, options_for_select([['Not started','Not started'],['Undertaking','Undertaking'],['Completed','Completed']])) %>
+   <%= form.select(:status, options_for_select([['not started','not started'],['undertaking','undertaking'],['completed','completed']])) %>
  </div>
 
  <div class="field">
    <%= form.label :priority %>
-   <%= form.text_field :priority %>
+   <%= form.select(:priority, options_for_select([['high','high'],['medium','medium'],['low','low']])) %>
  </div>
+ 
  <div class="field">
    <%= form.label :start_date %>
    <%= form.date_select :startdate %>
