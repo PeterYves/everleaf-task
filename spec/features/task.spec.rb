@@ -16,19 +16,15 @@ RSpec.feature "Task management function", type: :feature do
   end
 
   scenario "Test task creation" do
-     # visit to new_task_path (transition to task registration page)
+
    visit new_task_path
-   # In the input field labeled "Task Name" and in the input field labeled "Task Details"
-   # Fill in the task title and content respectively
    fill_in  'Name' ,  with: 'completed'
    fill_in  'Detail' ,  with: 'ruby task'
-   fill_in  'Status' ,  with: 'completed'
-   fill_in  'Priority' ,  with: 'low'
    
-   # Click_on a button with a value (notation letter) of “Register”
+   
    click_on  '登録する'
-   # Check if the information that is supposed to be registered by click is displayed on the task detail page
-   # (Assumption that transition to the task details screen will be made if the task is registered)
+
+   expect(page).to have_text('Task was successfully created.')
    
   end
 
@@ -44,8 +40,8 @@ RSpec.feature "Task management function", type: :feature do
     visit edit_task_path(id: task1.id)
     fill_in 'Name', with: 'suredeal'
     fill_in 'Detail', with: 'of course'
-    fill_in  'Status' ,  with: 'completed'
-   fill_in  'Priority' ,  with: 'low'
+    # fill_in  'Status' ,  with: 'completed'
+    # fill_in  'Priority' ,  with: 'low'
    
     click_on '更新する'
     visit tasks_path
@@ -53,9 +49,13 @@ RSpec.feature "Task management function", type: :feature do
     expect(page).to have_content('of course')
   end
   scenario "Test whether tasks are arranged in descending order of creation date" do
-    Task.order('startdate desc')
+    Task.all.order('startdate desc')
   end
   scenario "Test whether tasks are arranged in descending order of end date" do
-    Task.order('enddate desc')
+    Task.all.order('enddate desc')
+  end
+  scenario "Test sort in high order by priority" do
+    FactoryBot.create(:task, name: 'Added name 2',details:'details priority',status:'completed',priority:'low',startdate:'2019-09-12',enddate:'2019-10-09')
+    Task.order('priority asc')
   end
 end
