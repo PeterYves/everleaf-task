@@ -31,4 +31,6 @@ class Task < ApplicationRecord
       order(startdate: :desc)
     end
   end
+
+  paginates_per 3
 end
