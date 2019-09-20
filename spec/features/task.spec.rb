@@ -48,12 +48,15 @@ RSpec.feature "Task management function", type: :feature do
     expect(page).to have_content('suredeal')
     expect(page).to have_content('of course')
   end
+
   scenario "Test whether tasks are arranged in descending order of creation date" do
     Task.all.order('startdate desc')
   end
+
   scenario "Test whether tasks are arranged in descending order of end date" do
     Task.all.order('enddate desc')
   end
+
   scenario "Test sort in high order by priority" do
     FactoryBot.create(:task, name: 'Added name 2',details:'details priority',status:'completed',priority:'low',startdate:'2019-09-12',enddate:'2019-10-09')
     Task.order('priority asc')

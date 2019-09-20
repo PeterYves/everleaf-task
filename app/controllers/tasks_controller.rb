@@ -4,9 +4,9 @@ class TasksController < ApplicationController
   # GET /tasks
   def index 
     @tasks = if params[:term]
-      Task.where('status LIKE ? or name LIKE ?', "%#{params[:term]}%","%#{params[:term]}%")
+      Task.where('status LIKE ? or name LIKE ?', "%#{params[:term]}%","%#{params[:term]}%").page params[:page]
     else
-      @tasks = Task.order_list(params[:sort_by])
+      @tasks = Task.order_list(params[:sort_by]).page params[:page]
     end
   end
 
@@ -33,6 +33,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to @task, notice: 'Task was successfully created.'
     else
+      flash[:error] = 'There was an error creating the task.'
       render :new
     end
   end
