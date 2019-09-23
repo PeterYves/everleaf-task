@@ -1,17 +1,59 @@
 // Place all the styles related to the tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.sort{
+.sort1{
     background:whitesmoke;
-    width: 15%;
-    padding: 10px;
-    border: 2px black solid;
+    padding: 5px;
+    border: 1px black solid;
     border-radius: 5px;
+    float: right;
 }
-.sort h3{
-    background:yellowgreen
+.sort1 h3{
+    margin-right: 3px;
+    float: left;
 }
 .sort .btn{
     color: white;
     margin: 2px
+}
+.heeder{
+    border-bottom: 4px solid navy;
+}
+.header{
+    background:wheat;
+    padding: 20px;
+}
+.main{
+    margin-top:50px;
+    width: 100%;
+}
+.content{
+    width: 100%;
+    background: whitesmoke;
+    margin: auto;
+    padding-bottom: 40px;
+}
+.tasks{
+    width: 60%;
+    margin: auto;
+}
+table{
+    background:white;
+    border: 1px solid;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+table th{
+    
+    border: solid 2px;
+}
+.footer{
+    border: none;
+    margin-top: 50px;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    background:rgb(87, 85, 83);
+    font-size: 17px;
+    
 }
