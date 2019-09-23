@@ -49,6 +49,16 @@ RSpec.feature "Task management function", type: :feature do
     expect(page).to have_content('of course')
   end
 
+
+  scenario 'test whether task validations work' do
+    visit  tasks_path
+    click_on 'New Task'
+    fill_in  'Name' ,  with: ''
+    fill_in  'Details' ,  with: 'Failure test'
+    click_on '登録する'
+    expect(page).to have_text('1 error prohibited this task from being saved:')
+  end
+
   scenario "Test whether tasks are arranged in descending order of creation date" do
     Task.all.order('startdate desc')
   end
