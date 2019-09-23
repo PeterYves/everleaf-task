@@ -12,7 +12,6 @@ RSpec.feature "Task management function", type: :feature do
 
   visit tasks_path
 
-  save_and_open_page
   end
 
   scenario "Test task creation" do
@@ -49,18 +48,12 @@ RSpec.feature "Task management function", type: :feature do
     expect(page).to have_content('of course')
   end
 
-
-  scenario 'test whether task validations work' do
-    visit  tasks_path
-    click_on 'New Task'
-    fill_in  'Name' ,  with: ''
-    fill_in  'Details' ,  with: 'Failure test'
-    click_on '登録する'
-    expect(page).to have_text('1 error prohibited this task from being saved:')
-  end
-
   scenario "Test whether tasks are arranged in descending order of creation date" do
-    Task.all.order('startdate desc')
+    FactoryBot.create(:task, name: 'test creation date descending',details:'details priority',status:'completed',priority:'low',startdate:'2019-09-12',enddate:'2019-10-09')
+    Task.all.order('created_at desc')
+    visit tasks_path
+    save_and_open_page
+
   end
 
   scenario "Test whether tasks are arranged in descending order of end date" do
