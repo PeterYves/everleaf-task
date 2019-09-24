@@ -1,3 +1,4 @@
+
 <%= form_with(model: task, local: true) do |form| %>
   <% if task.errors.any? %>
     <div id="error_explanation">
@@ -13,12 +14,12 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name,class:'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :details %>
-    <%= form.text_field :details %>
+    <%= form.text_area :details,class:'form-control' %>
   </div>
 
   <div class="field">
@@ -41,6 +42,6 @@
  </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:'btn btn-primary btn-lg btn-block' %>
   </div>
 <% end %>

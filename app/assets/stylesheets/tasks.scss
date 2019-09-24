@@ -49,11 +49,20 @@ table th{
 }
 .footer{
     border: none;
-    margin-top: 50px;
+    margin-top: 30px;
     color: white;
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: center;
     background:rgb(87, 85, 83);
     font-size: 17px;
     
+}
+.form{
+    background:lightgoldenrodyellow;
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+}
+.btn-sm{
+    width: 48.5%
 }
