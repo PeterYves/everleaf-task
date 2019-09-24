@@ -56,8 +56,12 @@ RSpec.feature "Task management function", type: :feature do
 
   end
 
-  scenario "Test whether tasks are arranged in descending order of end date" do
+  scenario "Test whether tasks are arranged in descending order of end date(deadline)" do
+    FactoryBot.create(:task, name: 'test end date descending',details:'details priority',status:'completed',priority:'low',startdate:'2019-09-12',enddate:'2019-10-09')
     Task.all.order('enddate desc')
+    visit tasks_path
+    
+    
   end
 
   scenario "Test sort in high order by priority" do
