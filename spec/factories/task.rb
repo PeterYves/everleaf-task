@@ -21,4 +21,4 @@ FactoryBot.define do
       startdate {'2019-09-08'}
       enddate { '2019-09-19'}
     end
-  end
+end

@@ -1,8 +1,8 @@
 class Task < ApplicationRecord
-    
+
+  belongs_to :user  
   validates :name,    length: { in: 1..140 } 
   validates :startdate,:name,:details,:status,:priority,:enddate,presence: true
-  # enum status: [:not_started,:completed,:undertaking]
 
   # validate :startdate_cannot_be_later_than_enddate
   # private
@@ -12,9 +12,13 @@ class Task < ApplicationRecord
   #   end
   # end
 
-  def self.search(term)
+  def self.search(term,term1,term2)
     if term
       where('name LIKE ?', "%#{term}%")
+    elsif term1
+      where('name LIKE ?', "%#{term1}%")
+    elsif term2
+      where('name LIKE ?', "%#{term2}%")
     else
       order('id desc')
     end

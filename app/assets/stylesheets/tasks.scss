@@ -20,7 +20,7 @@
     border-bottom: 4px solid navy;
 }
 .header{
-    background:wheat;
+    background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
     padding: 20px;
 }
 .main{
@@ -36,6 +36,9 @@
 .tasks{
     width: 60%;
     margin: auto;
+    background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);
+    padding: 10px;
+    padding-bottom: 30px;
 }
 table{
     background:white;
@@ -55,7 +58,6 @@ table th{
     text-align: center;
     background:rgb(87, 85, 83);
     font-size: 17px;
-    
 }
 .form{
     background:lightgoldenrodyellow;
@@ -65,4 +67,7 @@ table th{
 }
 .btn-sm{
     width: 48.5%
+}
+.heeder{
+    background: white;
 }

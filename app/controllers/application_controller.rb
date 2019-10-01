@@ -1,5 +1,10 @@
 class ApplicationController < ActionController::Base
-    around_action :switch_locale
+
+  protect_from_forgery with: :exception
+  include SessionsHelper
+  helper_method :current_user
+
+  around_action :switch_locale
  
   def switch_locale(&action)
     locale = params[:locale] || I18n.default_locale
