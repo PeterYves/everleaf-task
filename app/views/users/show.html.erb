@@ -5,14 +5,13 @@
 
 
 <% if logged_in? %>
-<h1><%= @user.username %> page's</h1>
+<h1><%= @user.name %> page's</h1>
 <p>email address: <%= @user.email %></p>
 <%= link_to 'View tasks', tasks_path %>
 </div>
 <div class="content-content">
-<h3><%= link_to 'View Recent Posts', posts_path %></h3>
 <% else %>
-<h1> Welcome </h1>
+<h1>welcome <%= @user.name %>!</h1>
 
 <p>email address: <%= @user.email %></p>
 <%= link_to 'Please Log In', new_session_path %>
