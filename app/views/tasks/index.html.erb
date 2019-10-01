@@ -6,20 +6,20 @@
 <div class="tasks">
 <h1>Tasks</h1>
 
-<%= form_tag(tasks_path, method: :get,style:'float:left;margin-right:5px') do %>
+<%= form_tag(tasks_path, method: :get,style:'float:left;margin-right:3px') do %>
   <%= text_field_tag :term1, params[:term1],placeholder:'  search by task name' %>
-  <%= submit_tag 'Search', name: nil %>
+  <%= submit_tag ' Search', name: nil %>
  <% end %>
 
- <%= form_tag(tasks_path, method: :get,style:'float:left;margin-right:5px') do %>
+ <%= form_tag(tasks_path, method: :get,style:'float:left;margin-right:3px') do %>
   <%= text_field_tag :term2, params[:term2],placeholder:'  search by status' %>
   <%= submit_tag 'Search', name: nil %>
  <% end %>
 
-<%= form_tag(tasks_path, method: :get,style:'float:left') do %>
+<%= form_tag(tasks_path, method: :get,style:'') do %>
   <%= text_field_tag :term, params[:term],placeholder:'  search by both name or status' %>
   <%= submit_tag 'Search', name: nil %>
- <% end %><br><br>
+ <% end %><br>
 
 <table>
   <thead>
@@ -48,9 +48,9 @@
         <td><%= task.startdate %></td>
         <td><%= task.enddate %></td>
        
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', task,class:'btn-sm btn-info' %></td>
+        <td><%= link_to 'Edit', edit_task_path(task),class:'btn-sm btn-warning' %></td>
+        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' },class:'btn-sm btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -59,12 +59,12 @@
 
 <div class="sort1">
 <h3 class="sortby">Sort By:</h3>
-<%= link_to "name", tasks_path(sort_by: "name"),class:'btn btn-primary' %>
-<%= link_to "enddate", tasks_path(sort_by: "enddate"),class:'btn btn-warning' %>
-<%= link_to "priority", tasks_path(sort_by: "priority"),class:'btn btn-secondary' %>
+<%= link_to "name", tasks_path(sort_by: "name"),class:'btn btn-primary btn-sm' %>
+<%= link_to "enddate", tasks_path(sort_by: "enddate"),class:'btn btn-warning btn-sm' %>
+<%= link_to "priority", tasks_path(sort_by: "priority"),class:'btn btn-secondary btn-sm' %>
 </div>
 <br>
-<%= link_to t('view.New Task'), new_task_path %>
+<%= link_to t('view.New Task'), new_task_path,class:'new' %>
 </div>
 </div>
 </div>

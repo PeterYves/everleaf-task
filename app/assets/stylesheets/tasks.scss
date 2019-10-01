@@ -4,13 +4,14 @@
 .sort1{
     background:whitesmoke;
     padding: 5px;
-    border: 1px black solid;
+    border: 0.1px rgb(133, 131, 131) solid;
     border-radius: 5px;
     float: right;
 }
 .sort1 h3{
     margin-right: 3px;
     float: left;
+    font-size: 15px
 }
 .sort .btn{
     color: white;
@@ -70,4 +71,24 @@ table th{
 }
 .heeder{
     background: white;
+}
+table .btn-sm{
+    color: white;
+    border-radius: 20px;
+    font-size: 10px;
+}
+.sort1 .btn-sm{
+    width: auto;
+}
+.new{
+    background: transparent;
+    padding: 5px;
+    opacity: 0.6;
+    color: #fbfcdb;
+    border: 0.3px solid black;
+}
+.new:hover{
+    padding: 10px;
+    transition: 0.9s;
+    background: #041c24;
 }

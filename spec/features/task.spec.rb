@@ -14,16 +14,16 @@ RSpec.feature "Task management function", type: :feature do
        click_on '登録する'
        click_on 'Bakku'
        click_on 'Atarashī shigoto'
-       fill_in  'Name' ,  with: 'who'
-       fill_in  'Details' ,  with: 'world health progrm'
+       fill_in  'Name' ,  with: 'W.H.O'
+       fill_in  'Details' ,  with: 'World Health Progrm'
        click_on '登録する'
        click_on 'Bakku'
     #FactoryBot.create(:task, name: 'Added name 1')
-    Task.create(name: 'test_task_03', details: 'samplesample3',status: 'completed',priority:'medium',startdate:'2019-09-09',enddate:'2019-09-12')
+    Task.create(name: 'cooking', details: 'porridge',status: 'completed',priority:'medium',startdate:'2019-09-09',enddate:'2019-09-12')
   end
   scenario "Test task list" do
 
-    expect(page).to have_content 'who'
+    expect(page).to have_content 'W.H.O'
     expect(page).to have_content 'confort'
     
     visit tasks_path
@@ -90,6 +90,8 @@ RSpec.feature "Task management function", type: :feature do
   end
   scenario "test if search works" do
     visit tasks_path
-    Task.where('status LIKE ? or name LIKE ?')
+    fill_in  'term1' ,  with: 'W.H.O'
+    click_on ' Search'
+    expect(page).to have_content('W.H.O')
   end
 end
