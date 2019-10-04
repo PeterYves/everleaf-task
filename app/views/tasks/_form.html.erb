@@ -1,0 +1,47 @@
+
+<%= form_with(model: task, local: true) do |form| %>
+  <% if task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name,class:'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :details %>
+    <%= form.text_area :details,class:'form-control' %>
+  </div>
+
+  <div class="field">
+   <%= form.label :status %>
+   <%= form.select(:status, options_for_select([['not started','not started'],['undertaking','undertaking'],['completed','completed']])) %>
+ </div>
+
+ <div class="field">
+   <%= form.label :priority %>
+   <%= form.select(:priority, options_for_select([['high','high'],['medium','medium'],['low','low']])) %>
+ </div>
+ 
+ <div class="field">
+   <%= form.label :start_date %>
+   <%= form.date_select :startdate %>
+ </div>
+ <div class="field">
+   <%= form.label :end_date %>
+   <%= form.date_select :enddate %>
+ </div>
+
+  <div class="actions">
+    <%= form.submit class:'btn btn-primary btn-lg btn-block' %>
+  </div>
+<% end %>
