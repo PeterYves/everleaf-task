@@ -1,0 +1,39 @@
+<div class="main">
+<div class="content">
+<div class="tasks">
+<div class="form">
+<h1>Create New User</h1>
+
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:</h2>
+    <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with(model: @user, local: true) do |f| %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email,class:'form-control' %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password,class:'form-control' %>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation,class:'form-control' %>
+
+   <%= f.label :Admin %>
+   <%= f.select(:Admin, options_for_select([['true','true'],['false','false']])) %>
+
+  <br><br>
+  <%= f.submit "Update User",class:'btn btn-success' %>
+<% end %>
+
+</div>
+</div>
+</div>
+</div>
