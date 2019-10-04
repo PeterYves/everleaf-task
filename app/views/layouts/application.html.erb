@@ -22,18 +22,18 @@
       <%= link_to 'All Tasks', tasks_path,class:'nav-link' %>
       </li>
       <li class="nav-item">
-      <% if logged_in? && current_user.Admin == true %>
+      <% if logged_in? %>
       <%= link_to 'Users', admins_path,class:'nav-link' %>
       <% end %>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <% if logged_in? %>
-      <% if logged_in? && current_user.Admin == true %>
+      
       <ul>
       <li><button disabled class="admin">Admin</button></li>
       </ul>
-      <% end %>
+      
       <a class="nav-link" href="#" style="padding-left:30px"><%= current_user.email %><span class="sr-only">(current)</span></a>
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><%= link_to "Profile", user_path(current_user.id) %></button>&nbsp
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><%= link_to "Logout", session_path(current_user.id), method: :delete %></button>
