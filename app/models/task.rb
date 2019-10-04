@@ -3,6 +3,7 @@ class Task < ApplicationRecord
   belongs_to :user  
   validates :name,    length: { in: 1..140 } 
   validates :startdate,:name,:details,:status,:priority,:enddate,presence: true
+  enum priority: [:low, :medium, :high]
 
   # validate :startdate_cannot_be_later_than_enddate
   # private
@@ -30,7 +31,7 @@ class Task < ApplicationRecord
     elsif sort_order == "enddate"
       order(enddate: :desc)
     elsif sort_order == "priority"
-      order(priority: :asc)
+      order(priority: :desc)
     else
       order(created_at: :desc)
     end
