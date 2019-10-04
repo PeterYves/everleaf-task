@@ -5,14 +5,9 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
-      if user.Admin == true
-        redirect_to admins_path, notice: "Logged in as admin!"
-      else
-        redirect_to tasks_path(user.id)
-        flash[:notice] = ''
-      end      
+      redirect_to tasks_path(user.id)
     else
-      flash[:notice] = 'Incorrect Username or Password'
+      flash[:danger] = 'Failed to login'
       render 'new'
     end
   end
