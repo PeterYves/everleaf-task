@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2019_10_01_064859) do
     t.string "name", null: false
     t.string "details", null: false
     t.string "status", null: false
-    t.string "priority", null: false
+    t.integer "priority", null: false
     t.datetime "startdate", null: false
     t.datetime "enddate", null: false
     t.datetime "created_at", default: -> { "now()" }
@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 2019_10_01_064859) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "usename"
     t.string "email"
     t.string "password_digest"
     t.datetime "created_at", null: false
