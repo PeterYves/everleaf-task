@@ -17,6 +17,9 @@
 
 <%= form_with(model: @user, local: true) do |f| %>
 
+  <%= f.label :UserName %>
+  <%= f.text_field :name,class:'form-control' %>
+
   <%= f.label :email %>
   <%= f.email_field :email,class:'form-control' %>
 
