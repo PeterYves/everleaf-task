@@ -18,6 +18,8 @@ RSpec.feature "Task management function", type: :feature do
        fill_in  'Details' ,  with: 'World Health Progrm'
        click_on '登録する'
        click_on 'Bakku'
+       
+       
     #FactoryBot.create(:task, name: 'Added name 1')
     Task.create(name: 'cooking', details: 'porridge',status: 'completed',priority:'medium',startdate:'2019-09-09',enddate:'2019-09-12')
   end
@@ -27,7 +29,7 @@ RSpec.feature "Task management function", type: :feature do
     expect(page).to have_content 'confort'
     
     visit tasks_path
-    save_and_open_page
+    # save_and_open_page
 
   end
 
@@ -73,7 +75,6 @@ RSpec.feature "Task management function", type: :feature do
     Task.create(name: 'Added taskname',details:'task details',status:'completed',priority:'low',startdate:'2019-09-10',enddate:'2019-10-23')
     Task.all.order('created_at desc')
     visit tasks_path
-    save_and_open_page
 
    end
 
@@ -85,8 +86,18 @@ RSpec.feature "Task management function", type: :feature do
   end
 
   scenario "Test sort in high order by priority" do
-    Task.create(name: 'Added name 2',details:'details priority',status:'completed',priority:'low',startdate:'2019-09-12',enddate:'2019-10-09')
-    Task.order('priority asc')
+       click_on 'Atarashī shigoto'
+       fill_in  'Name' ,  with: 'Well'
+       fill_in  'Details' ,  with: 'Wether Health pass'
+       click_on '登録する'
+       click_on 'Bakku'
+    @task1=Task.first
+    @task1.priority='low'
+    @task1.save
+    Task.all.order('priority desc')
+    visit tasks_path
+    save_and_open_page
+   
   end
   scenario "test if search works" do
     visit tasks_path
