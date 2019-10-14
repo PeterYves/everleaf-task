@@ -13,7 +13,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to tasks_path(@user.id)
     else
-      render 'new'
+      render 'new', notice: 'User creation failed.'
+
     end
   end
 
