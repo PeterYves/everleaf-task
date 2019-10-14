@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
+
   def new
     @user = User.new
   end
@@ -12,15 +13,16 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to tasks_path(@user.id)
     else
-      render 'new'
+      render 'new', notice: 'User creation failed.'
+
     end
   end
+
   def show
     @user = User.find(params[:id])
   end
 
   private
-
   def user_params
     params.require(:user).permit(:name,:email, :password,
                                  :password_confirmation)
