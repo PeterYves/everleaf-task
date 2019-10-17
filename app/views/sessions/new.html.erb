@@ -1,20 +1,20 @@
 <div class="main">
-  <div class="content">
-    <div class="tasks">
-      <div class="form">
-        <h1>Log in</h1>
-        <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+<div class="content">
+<div class="tasks">
+<div class="form">
+<h1>Log in</h1>
+<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
 
-          <%= f.label :Email %>
-          <%= f.email_field :email,class:'form-control' %>
+  <%= f.label :email %>
+  <%= f.email_field :email,class:'form-control' %>
 
-          <%= f.label :Password %>
-          <%= f.password_field :password,class:'form-control' %>
-          <br>
-          <%= f.submit "Log in",class:'btn btn-success' %>
-        <% end %>
-      </div>
-    </div>
-    <br><br><br><br><br><br><br>
-  </div>
+  <%= f.label :password %>
+  <%= f.password_field :password,class:'form-control' %>
+  <br>
+  <%= f.submit "Log in",class:'btn btn-success' %>
+<% end %>
+</div>
+</div>
+<br><br><br><br><br><br><br>
+</div>
 </div>
