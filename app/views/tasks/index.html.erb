@@ -38,6 +38,7 @@
 
   <tbody>
     <% @tasks.each do |task| %>
+    <% if task.user_id==current_user.id %>
       <tr>
         <td><%= task.name %></td>
         <td><%= task.details %></td>
@@ -52,6 +53,7 @@
         <td><%= link_to 'Edit', edit_task_path(task),class:'btn-sm btn-warning' %></td>
         <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' },class:'btn-sm btn-danger' %></td>
       </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

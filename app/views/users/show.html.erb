@@ -2,12 +2,15 @@
   <div class="content">
     <div class="tasks">
       <div class="form">
-        <% if logged_in? %>
-          <h3>WElcome to <%= @user.name %> 's Page</h3>
+        <% if logged_in? && current_user.id == @user.id %>
+          <h3><%= @user.name %> 's Page</h3><hr>
           <h6><%= @user.email %> page's</h6>
           <%= link_to 'View tasks', tasks_path %>
           </div>
           <div class="content-content">
+          <% elsif logged_in? && current_user.id != @user.id%>
+           <h2>OOPS</h2>
+           <%= notice %>
         <% else %>
           <h3>welcome <%= @user.name %>!</h3>
 
