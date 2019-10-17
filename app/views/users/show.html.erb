@@ -1,25 +1,28 @@
 <div class="main">
   <div class="content">
     <div class="tasks">
-      <div class="form">
+
         <% if logged_in? && current_user.id == @user.id %>
-          <h3><%= @user.name %> 's Page</h3><hr>
-          <h6><%= @user.email %> page's</h6>
-          <%= link_to 'View tasks', tasks_path %>
+          <div class="form">
+            <h2><%= @user.name %> 's Page</h2><hr>
+            <h6><%= @user.email %> page</h6>
+            <%= link_to 'View tasks', tasks_path %>
           </div>
           <div class="content-content">
-          <% elsif logged_in? && current_user.id != @user.id%>
-           <h2>OOPS</h2>
-           <%= notice %>
+        <% elsif logged_in? && current_user.id != @user.id %>
+          <h2 style="text-align:center">Sorry! You are not The Page Owner</h2>
+          <p style="text-align:center"> Only the Page owner can see his Profile.</p>
         <% else %>
-          <h3>welcome <%= @user.name %>!</h3>
+<h1>welcome <%= @user.name %>!</h1>
 
-           <%= link_to 'Please Log In', new_session_path %>
-        <% end %>
-        <% flash.each do |key, value| %>
-          <%= content_tag(:div, value, class: "#{key}") %>
-          <% end %>
-      </div>
-    </div>
-  </div>
+<%= link_to 'Please Log In', new_session_path %>
+<% end %>
+<% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: "#{key}") %>
+  <% end %>
+
+</div>
+</div>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </div>

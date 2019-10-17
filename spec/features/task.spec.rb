@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "Task management function", type: :feature do
   background do
     User.create!(name:'peter', email: 'peter@gmail.Com',  password: '123456')
-    visit  tasks_path
+    visit  root_path
     fill_in  'Email' ,  with: 'peter@gmail.Com'
     fill_in  'Password' ,  with: '123456'
     click_on  'Log in'
