@@ -1,3 +1,41 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.user_btn{
+    background: whitesmoke; 
+}
+.user_btn:hover{
+    transition: 0.9s;
+    -webkit-transition: 0.9s;
+    -moz-transition: 0.9s;
+    -ms-transition: 0.9s;
+    -o-transition: 0.9s;
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+.admin_btn{
+    background: green;
+    text-decoration-color: white;
+    padding: 3px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    -moz-text-decoration-color: white;
+}
+.admin-li{
+    list-style-type: square circle;
+    color: yellowgreen;
+}
+.hr{
+    background: green;
+    width: 100%;
+    padding: 3px;
+}
