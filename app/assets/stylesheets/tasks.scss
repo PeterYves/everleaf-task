@@ -92,3 +92,17 @@ table .btn-sm{
     transition: 0.9s;
     background: #041c24;
 }
+.label{
+    border: 0.2px rgb(177, 172, 172) solid;
+    padding: 10px;
+    float: left;
+    padding: 5px;
+    margin-bottom: 3px;
+}
+.labels{
+    width: 50%;
+    padding: 5px;
+    list-style-type: none;
+    border: 1px solid rgb(47, 162, 170);
+    margin-bottom: 3px;
+}

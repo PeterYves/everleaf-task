@@ -39,7 +39,18 @@
  <div class="field">
    <%= form.label :end_date %>
    <%= form.date_select :enddate %>
- </div>
+ </div><hr>
+ <p> Choose label to Attach to this task:
+  
+  <% Label.all.each do |label| %>
+  <% if current_user.id == label.user_id %>
+  <div class = "label">
+  
+  <%= form.label:title, label.title %>
+  <%= form.check_box :label_ids, { multiple: true, checked: label[:checked], disabled: label[:disabled], include_hidden: false }, label[:id] %>
+  </div>
+  <% end%>
+  <% end %>
 
   <div class="actions">
     <%= form.submit class:'btn btn-primary btn-lg btn-block' %>
