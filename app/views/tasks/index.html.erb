@@ -1,13 +1,14 @@
 <div class="main">
 <h1 class="header"><%= t('view.welcome') %></h1>
-<div class="content"
+<div class="content">
 <p id="notice"><%= notice %></p>
 <hr>
+
 <div class="tasks">
 <h1>Tasks</h1>
 
 <%= form_tag(tasks_path, method: :get,style:'float:left;margin-right:3px') do %>
-  <%= text_field_tag :term1, params[:term1],placeholder:'  search by task name' %>
+  <%= text_field_tag :term3, params[:term3],placeholder:'  search by label title' %>
   <%= submit_tag ' Search', name: nil %>
  <% end %>
 
@@ -18,7 +19,7 @@
 
 <%= form_tag(tasks_path, method: :get,style:'') do %>
   <%= text_field_tag :term, params[:term],placeholder:'  search by both name or status' %>
-  <%= submit_tag 'Search', name: nil %>
+  <%= submit_tag '  Search', name: nil %>
  <% end %><br>
 
 <table>
@@ -28,6 +29,7 @@
       <th>Details</th>
       <th>Status</th>
       <th>Priority</th>
+      <th>Labels</th>
       <th>Task creator</th>
       <th>Creation Date</th>
       <th>StartDate</th>
@@ -44,6 +46,7 @@
         <td><%= task.details %></td>
         <td><%= task.status %></td>
         <td><%= task.priority %></td>
+        <td><%= task.labels.size %></td>
         <td><%= task.user.email %></td>
         <td><%= task.created_at %></td>
         <td><%= task.startdate %></td>

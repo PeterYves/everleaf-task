@@ -9,6 +9,9 @@ class TasksController < ApplicationController
       Task.where('name LIKE ?', "%#{params[:term1]}%").page params[:page]
     elsif params[:term2]
       Task.where('status LIKE ?', "%#{params[:term2]}%").page params[:page]
+    elsif params[:term3]
+      Task.joins(:labels)
+        .where("labels.title LIKE ?", "%#{params[:term3]}%").page params[:page]
     else
       #@tasks = Task.all.order('created_at desc').page params[:page]
       @tasks = Task.order_list(params[:sort_by]).page params[:page]
@@ -25,6 +28,8 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task = Task.new
+    @task.labels.build
+    @task.tasks_labels.build
   end
 
   # GET /tasks/1/edit
@@ -35,6 +40,7 @@ class TasksController < ApplicationController
   def create
     #@task = Task.new(task_params)
     @task = current_user.tasks.build(task_params)
+    @labels= Label.all
     if @task.save
       redirect_to @task, notice: 'Task was successfully created.'
     else
@@ -66,6 +72,6 @@ class TasksController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def task_params
-      params.require(:task).permit(:name, :details,:status,:priority,:startdate,:enddate,:term,:term1,:term2,:user_id)
+      params.require(:task).permit(:name, :details,:status,:priority,:startdate,:enddate,:term,:term1,:term2,:term3,:user_id, label_ids: [])
     end
 end
