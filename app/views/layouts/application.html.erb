@@ -21,9 +21,11 @@
       <li class="nav-item">
       <%= link_to 'Home', tasks_path,class:'nav-link' %>
       </li>
+      <% if logged_in? %>
       <li class="nav-item">
       <%= link_to 'Create Label', labels_path, class:'nav-link' %>
       </li>
+      <% end %>
       <% if logged_in? && current_user.user_type == "admin" %>
       <li class="nav-item">
       <%= link_to 'Manage Users', admin_users_path,class:'nav-link user_btn' %>
