@@ -43,6 +43,14 @@
   <%= @task.enddate %>
 </p>
 
+<hr>
+<h4>Labels attached to this task:</h4>
+<% @task.labels.each do |label| %>
+<div class="labels">
+Title:<%= label.title + '       ' %> <br/>Content:<%= label.content %>
+</div>
+<% end %>
+
 <%= link_to t('view.Edit'), edit_task_path(@task),class:'btn btn-info btn-sm' %> |
 <%= link_to t('view.Back'), tasks_path,class:'btn btn-secondary btn-sm' %>
 </div>

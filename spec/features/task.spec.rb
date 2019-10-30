@@ -101,8 +101,31 @@ RSpec.feature "Task management function", type: :feature do
   end
   scenario "test if search works" do
     visit tasks_path
-    fill_in  'term1' ,  with: 'W.H.O'
-    click_on ' Search'
+    fill_in  'term' ,  with: 'W.H.O'
+    click_on '  Search'
     expect(page).to have_content('W.H.O')
+  end
+  scenario "test task search by attached labels " do
+    click_on 'Create Label'
+    click_on 'New Label'
+    fill_in 'Title', with: 'label1 title'
+    fill_in 'Content', with: 'label1 content'
+    click_on '登録する'
+    click_on 'Create Label'
+    click_on 'New Label'
+    fill_in 'Title', with: 'label2 title'
+    fill_in 'Content', with: 'label2 content'
+    click_on '登録する'
+    @task = Task.first
+    @label1 = Label.first
+    @label2 = Label.last
+    @task.labels = [@label1,@label2]
+    @task.save
+    
+    visit tasks_path
+    save_and_open_page
+    fill_in  'term3' ,  with: 'label1 title'
+    click_on ' Search'
+    expect(page).to have_content('2')
   end
 end

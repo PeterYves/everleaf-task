@@ -1,6 +1,17 @@
 class Task < ApplicationRecord
 
   belongs_to :user  
+  has_many :tasks_labels, dependent: :destroy
+  has_many :labels, :through => :tasks_labels
+
+  accepts_nested_attributes_for :tasks_labels, :reject_if => proc { |a| 
+    a['label_id'].blank? }
+  accepts_nested_attributes_for :labels
+
+  before_save do
+    self.label.gsub!(/[\[\]\"]/,"") if attribute_present? ("label")
+  end
+
   validates :name,    length: { in: 1..140 } 
   validates :startdate,:name,:details,:status,:priority,:enddate,presence: true
   enum priority: [:low, :medium, :high]
